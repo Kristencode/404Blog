@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>News 404</title>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -15,123 +16,49 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-50 min-h-screen flex flex-col">
+
+
+
     <!-- NAVIGATION -->
-    <nav
-      class="bg-slate-50 text-red-700 shadow-sm sticky top-0 z-50 border-b border-gray-300"
-      aria-label="Main navigation"
-    >
-      <div
-        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
-      >
-        <a href="#" class="text-2xl font-extrabold text-red-600 tracking-wide"
-          >News<span class="text-gray-800">404</span></a
-        >
-        <!-- Nav links -->
+
+    <nav class="bg-slate-50  shadow-sm sticky top-0 z-50 border-b border-gray-300" aria-label="Main navigation">
+      <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <a href="#" class="text-2xl font-extrabold text-red-600 tracking-wide">News<span class="text-gray-800">404</span></a>
         <ul class="hidden md:flex space-x-10 font-semibold text-slate-900">
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Latest</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Sports</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Politics</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Fashion</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Business</a
-            >
-          </li>
+          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Home</a></li>
+          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Latest</a></li>
+          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Sports</a></li>
+          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Politics</a></li>
+          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Fashion</a></li>
+          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Business</a></li>
         </ul>
-        <!-- Hamburger for Mobil Responsiveness -->
+        <div class=" font-semibold text-gray-700 lg:flex gap-4 hidden ">
+          <button class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"><a href="">Sign In</a></button>
+          <button class="bg-red-700 text-white p-1 lg:px-2 rounded-md ease-in-out hover:scale-105 transition-transform duration-900"><a href="reg.html">Sign Up</a></button>          
+        </div>
+
+
         <input type="checkbox" id="menu-toggle" class="hidden" />
-        <label
-          for="menu-toggle"
-          class="md:hidden text-gray-700 focus:outline-none cursor-pointer"
-          aria-label="Toggle mobile menu"
-        >
-          <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
+        <label for="menu-toggle" class="md:hidden cursor-pointer" aria-label="Toggle mobile menu">
+          <ion-icon name="menu-outline" class="text-3xl" onclick="menuHam(e)"></ion-icon>
         </label>
       </div>
-      <!-- Mobile Responsiveness -->
-      <div
-        id="mobile-menu"
-        class="hidden peer-checked:block md:hidden bg-white border-t border-gray-200 text-slate-900"
-      >
-        <ul
-          class="flex flex-col space-y-3 px-6 py-4 font-semibold text-gray-700z"
-        >
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Latest</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Sports</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Politics</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Fashion</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Business</a
-            >
-          </li>
+      <div id="mobile-menu" class="hidden">
+        <ul class="flex flex-col space-y-3 px-6 py-4 font-semibold text-gray-700">
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li><a href="#" class="nav-link">Latest</a></li>
+          <li><a href="#" class="nav-link">Sports</a></li>
+          <li><a href="#" class="nav-link">Politics</a></li>
+          <li><a href="#" class="nav-link">Fashion</a></li>
+          <li><a href="#" class="nav-link">Business</a></li>
         </ul>
+
+
+        <div class=" font-semibold text-gray-700 flex-col flex gap-2 lg:hidden mb-5 ">
+
+          <button class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"><a href="">Sign In</a></button>
+          <button class="bg-red-700 text-white p-1 lg:px-2 rounded-sm ease-in-out hover:scale-105 transition-transform duration-900 w-auto mx-5" ><a href="reg.html">Sign Up</a></button>          
+        </div>
       </div>
     </nav>
 
@@ -168,7 +95,7 @@
               
               <button
                 type="submit"
-                class="mt-5 bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
+                class=" w-full mt-5 lg:mb-5 bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
               >
                 Read more
               </button>
@@ -196,249 +123,272 @@
             </p>
 
             <form
-              class="flex justify-center text-center flex-col sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
+              class=" gap-10  flex justify-center text-center lg:flex-row sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
             >
-              <input
-                type="text"
-                placeholder="Leave a comment"
-                class="flex-grow border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
+              
               <button
                 type="submit"
-                class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
+                class=" w-full mt-5 lg:mb-5 bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
               >
-                Submit
+                Read more
               </button>
             </form>
 
-            <section class="mt-6 p-2">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Comments</h3>
-              <div id="submit-2" class="text-gray-600 italic text-sm">
-                No comments yet.
-              </div>
-            </section>
+           
           </div>
         </article>
 
         <article
-          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
-        >
-          <img
-            src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
-            alt="Spain and Portugal power chaos"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
-              Spain and Portugal Power Chaos - In Pictures
-            </h2>
-            <p class="text-gray-700 flex-grow p-2">
-              Photos show the disruption caused by power cuts that have affected
-              large parts of Spain and Portugal.
-            </p>
-
-            <form
-              class="flex justify-center text-center flex-col sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
-            >
-              <input
-                type="text"
-                placeholder="Leave a comment"
-                class="flex-grow border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <button
-                type="submit"
-                class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
-              >
-                Submit
-              </button>
-            </form>
-
-            <section class="mt-6 p-2">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Comments</h3>
-              <div id="submit-2" class="text-gray-600 italic text-sm">
-                No comments yet.
-              </div>
-            </section>
-          </div>
-        </article>
-
-        <article
-          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
-        >
-          <img
-            src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
-            alt="Spain and Portugal power chaos"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
-              Spain and Portugal Power Chaos - In Pictures
-            </h2>
-            <p class="text-gray-700 flex-grow p-2">
-              Photos show the disruption caused by power cuts that have affected
-              large parts of Spain and Portugal.
-            </p>
-
-            <form
-              class="flex justify-center text-center flex-col sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
-            >
-              <input
-                type="text"
-                placeholder="Leave a comment"
-                class="flex-grow border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <button
-                type="submit"
-                class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
-              >
-                Submit
-              </button>
-            </form>
-
-            <section class="mt-6 p-2">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Comments</h3>
-              <div id="submit-2" class="text-gray-600 italic text-sm">
-                No comments yet.
-              </div>
-            </section>
-          </div>
-        </article>
-
-        <article
-          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
-        >
-          <img
-            src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
-            alt="Spain and Portugal power chaos"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
-              Spain and Portugal Power Chaos - In Pictures
-            </h2>
-            <p class="text-gray-700 flex-grow p-2">
-              Photos show the disruption caused by power cuts that have affected
-              large parts of Spain and Portugal.
-            </p>
-
-            <form
-              class="flex justify-center text-center flex-col sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
-            >
-              <input
-                type="text"
-                placeholder="Leave a comment"
-                class="flex-grow border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <button
-                type="submit"
-                class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
-              >
-                Submit
-              </button>
-            </form>
-
-            <section class="mt-6 p-2">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Comments</h3>
-              <div id="submit-2" class="text-gray-600 italic text-sm">
-                No comments yet.
-              </div>
-            </section>
-          </div>
-        </article>
-
-        <article
-          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
-        >
-          <img
-            src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
-            alt="Spain and Portugal power chaos"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
-              Spain and Portugal Power Chaos - In Pictures
-            </h2>
-            <p class="text-gray-700 flex-grow p-2">
-              Photos show the disruption caused by power cuts that have affected
-              large parts of Spain and Portugal.
-            </p>
-
-            <form
-              class="flex justify-center text-center flex-col sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
-            >
-              <input
-                type="text"
-                placeholder="Leave a comment"
-                class="flex-grow border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <button
-                type="submit"
-                class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
-              >
-                Submit
-              </button>
-            </form>
-
-            <section class="mt-6 p-2">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Comments</h3>
-              <div id="submit-2" class="text-gray-600 italic text-sm">
-                No comments yet.
-              </div>
-            </section>
-          </div>
-        </article>
-      </div>
-    </main>
-
-    <!--footer starts here-->
-    <footer
-      class="bg-slate-50 text-gray-300 px-4 sm:px-6 py-10 mt-10 border-t border-gray-300"
-    >
-      <div
-        class="w-[69%] mx-auto flex flex-col lg:flex-row justify-between items-start gap-8"
-      ></div>
-
-      <div
-        class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 text-sm text-center sm:text-left"
+        class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
       >
-        <!-- Social Media Icons...miht change or anyone can -->
-        <div
-          class="flex justify-center lg:justify-start gap-4 w-full lg:w-auto"
-        >
-          <a href="#" class="hover:text-red-800"
-            ><ion-icon
-              name="logo-facebook"
-              class="text-xl text-red-500"
-            ></ion-icon
-          ></a>
-          <a href="#" class="hover:text-red-800"
-            ><ion-icon
-              name="logo-twitter"
-              class="text-xl text-red-500"
-            ></ion-icon
-          ></a>
-          <a href="#" class="hover:text-red-800"
-            ><ion-icon
-              name="logo-instagram"
-              class="text-xl text-red-500"
-            ></ion-icon
-          ></a>
-          <a href="#" class="hover:text-red-800"
-            ><ion-icon
-              name="logo-youtube"
-              class="text-xl text-red-500"
-            ></ion-icon
-          ></a>
-        </div>
+        <img
+          src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
+          alt="Spain and Portugal power chaos"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6 flex flex-col flex-grow">
+          <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
+            Spain and Portugal Power Chaos - In Pictures
+          </h2>
+          <p class="text-gray-700 flex-grow p-2">
+            Photos show the disruption caused by power cuts that have affected
+            large parts of Spain and Portugal.
+          </p>
 
-        <div
-          class="text-center flex lg:text-right w-full lg:w-auto text-red-500"
-        >
-          <p>Designed by <a href="#" class="hover:underline">404</a></p>
+          <form
+            class=" gap-10  flex justify-center text-center lg:flex-row sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
+          >
+            
+            <button
+              type="submit"
+              class=" w-full mt-5 lg:mb-5 bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
+            >
+              Read more
+            </button>
+          </form>
+
+         
         </div>
+      </article>
+
+      <article
+      class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
+    >
+      <img
+        src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
+        alt="Spain and Portugal power chaos"
+        class="w-full h-48 object-cover"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
+          Spain and Portugal Power Chaos - In Pictures
+        </h2>
+        <p class="text-gray-700 flex-grow p-2">
+          Photos show the disruption caused by power cuts that have affected
+          large parts of Spain and Portugal.
+        </p>
+
+        <form
+          class=" gap-10  flex justify-center text-center lg:flex-row sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
+        >
+          
+          <button
+            type="submit"
+            class=" w-full mt-5 lg:mb-5 bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
+          >
+            Read more
+          </button>
+        </form>
+
+       
       </div>
-    </footer>
+    </article>
 
-    <script src="script.js"></script>
+    <article
+    class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
+  >
+    <img
+      src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
+      alt="Spain and Portugal power chaos"
+      class="w-full h-48 object-cover"
+    />
+    <div class="p-6 flex flex-col flex-grow">
+      <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
+        Spain and Portugal Power Chaos - In Pictures
+      </h2>
+      <p class="text-gray-700 flex-grow p-2">
+        Photos show the disruption caused by power cuts that have affected
+        large parts of Spain and Portugal.
+      </p>
+
+      <form
+        class=" gap-10  flex justify-center text-center lg:flex-row sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
+      >
+        
+        <button
+          type="submit"
+          class=" w-full mt-5 lg:mb-5 bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
+        >
+          Read more
+        </button>
+      </form>
+
+     
+    </div>
+  </article>
+
+  <article
+  class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col"
+>
+  <img
+    src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp"
+    alt="Spain and Portugal power chaos"
+    class="w-full h-48 object-cover"
+  />
+  <div class="p-6 flex flex-col flex-grow">
+    <h2 class="font-semibold text-xl text-gray-900 mb-3 p-2">
+      Spain and Portugal Power Chaos - In Pictures
+    </h2>
+    <p class="text-gray-700 flex-grow p-2">
+      Photos show the disruption caused by power cuts that have affected
+      large parts of Spain and Portugal.
+    </p>
+
+    <form
+      class=" gap-10  flex justify-center text-center lg:flex-row sm:flex-col sm:space-x-3 space-y-3 sm:space-y-0"
+    >
+      
+      <button
+        type="submit"
+        class=" w-full mt-5 lg:mb-5 bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 transition"
+      >
+        Read more
+      </button>
+    </form>
+
+   
+  </div>
+</article> 
+      </div>
+
+      <!-- COMMNET -->
+
+      <div>
+
+      <div class="flex justify-between lg:text-2xl bg-gray-200 p-2 mt-16 lg:mt-20 items-center px-4 rounded-sm">
+        <span>Open comments </span> 
+        <button id="drop"><ion-icon name="arrow-down-outline"></ion-icon></button>
+      </div>
+ 
+      <div id="down" class="p-2 lg:px-10 bg-gray-100 rounded-b-lg hidden">
+
+        <section class="mt-6 ">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Comments</h3>
+          <div class="text-gray-600 italic text-sm">No comments yet.</div>
+        </section>
+
+        <section class="mt-6  mb-3">
+          <div class="flex items-center gap-1">
+            <span><ion-icon name="person-circle-outline" class="text-4xl lg:text-5xl text-gray-500"></ion-icon></span>
+          <span class="text-gray-900 italic">Username</span>
+          </div>
+
+          <div class="p-1 px-11 lg:px-14"><p>
+            LOL i can see what the govrnment are ploting !!!
+          </p></div>
+        </section>
+
+      </div>
+
+    </div>
+ 
+    </main>
+  
+    <!--FOOTER-->
+
+
+    <footer class="bg-gray-900 text-gray-300 px-4 sm:px-6 py-10 mt-10">
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8">
+
+      <!-- Logo/Brand -->
+      <div>
+          <p class="text-2xl font-bold text-[#4b5563]">NEWS<em class="text-[#b91c1c]">@404</em></p>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="flex flex-col sm:flex-row gap-4 text-sm text-center sm:text-left">
+          <li class="hover:text-green-300"><a href="#">Home</a></li>
+          <li class="hover:text-green-300"><a href="#">Latest</a></li>
+          <li class="hover:text-green-300"><a href="#">Sports</a></li>
+          <li class="hover:text-green-300"><a href="#">Politics</a></li>
+          <li class="hover:text-green-300"><a href="#">Fashion</a></li>
+          <li class="hover:text-green-300"><a href="#">Business</a></li>
+      </ul>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gray-700 my-6"></div>
+
+      <!-- Social & Legal -->
+      <div
+      class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 text-sm text-center sm:text-left">
+
+      <!-- Social Media Icons -->
+      <div class="flex justify-center lg:justify-start gap-4 w-full lg:w-auto">
+          <a href="" target="_blank" class="hover:text-white"><ion-icon name="logo-facebook" class="text-xl"></ion-icon></a>
+          <a href="" class="hover:text-white" target="_blank"><ion-icon name="logo-twitter" class="text-xl"></ion-icon></a>
+          <a href="" target="_blank" class="hover:text-white"><ion-icon name="logo-instagram" class="text-xl"></ion-icon></a>
+          <a href="" target="_blank" class="hover:text-white"><ion-icon name="logo-linkedin" class="text-xl"></ion-icon></a>
+          <a href="" class="hover:text-white" target="_blank"><ion-icon name="logo-github" class="text-xl"></ion-icon></a>
+      </div>
+
+      <!-- Legal Info -->
+      <div class="text-center lg:text-right w-full lg:w-auto">
+          <p>© 2025 NEWS@404. All rights reserved.</p>
+          <p>Designed by PTB <a href="" target="_blank" class="hover:underline">404</a></p>
+      </div>
+      </div>
+  </footer>
+  <!-- Footer ends here -->
+
+
+    <script>
+
+          document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function menuHam(e){
+    
+            e.name = e.name === 'menu-outline' ? 'close-outline' : 'menu-outline';
+
+            }
+    
+
+            document.querySelector('label[for="menu-toggle"]').addEventListener("click", function() {
+                
+                menuToggle.checked = !menuToggle.checked;
+
+                if (menuToggle.checked) {
+                    mobileMenu.classList.toggle('hidden');
+                }
+            });
+          }); 
+
+
+
+
+        // SCRIPT FOR COMMENT
+
+              let button = document.getElementById('drop');
+              let content = document.getElementById('down')
+
+                button.addEventListener("click", (e) => {
+          
+          content.classList.toggle('hidden')
+          
+      })
+
+    </script>
   </body>
 </html>
