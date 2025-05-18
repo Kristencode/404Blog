@@ -1,13 +1,24 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
+            const menuToggle = document.getElementById("menu-toggle");
+            const mobileMenu = document.getElementById("mobile-menu");
 
-  if (btn && menu) {
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  }
+            function menuHam(e) {
+              e.name =
+                e.name === "menu-outline" ? "close-outline" : "menu-outline";
+            }
+
+            document
+              .querySelector('label[for="menu-toggle"]')
+              .addEventListener("click", function () {
+                menuToggle.checked = !menuToggle.checked;
+
+                if (menuToggle.checked) {
+                  mobileMenu.classList.toggle("hidden");
+                }
+              });
+           
+
 
  let formCon = document.querySelector("#regForm");
  let plus = document.querySelector("#plus");

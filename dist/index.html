@@ -307,87 +307,78 @@
     <!--FOOTER-->
 
 
-    <footer class="bg-gray-900 text-gray-300 px-4 sm:px-6 py-10 mt-10">
-      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8">
+   <footer class="bg-gray-900 text-gray-300 px-4 sm:px-6 py-10 mt-10">
+  <!-- Top Section -->
+  <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between gap-8">
+    <!-- Logo -->
+    <div class="text-center lg:text-left">
+      <p class="text-2xl font-bold text-white">
+        NEWS<em class="text-[#b91c1c]">@404</em>
+      </p>
+    </div>
 
-      <!-- Logo/Brand -->
-      <div>
-          <p class="text-2xl font-bold text-[#4b5563]">NEWS<em class="text-[#b91c1c]">@404</em></p>
-      </div>
+    <!-- Navigation Links -->
+    <ul class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-center lg:text-left">
+      <li><a href="#" class="hover:text-green-300">Home</a></li>
+      <li><a href="#" class="hover:text-green-300">Latest</a></li>
+      <li><a href="#" class="hover:text-green-300">Sports</a></li>
+      <li><a href="#" class="hover:text-green-300">Politics</a></li>
+      <li><a href="#" class="hover:text-green-300">Fashion</a></li>
+      <li><a href="#" class="hover:text-green-300">Business</a></li>
+    </ul>
+  </div>
 
-      <!-- Navigation Links -->
-      <ul class="flex flex-col sm:flex-row gap-4 text-sm text-center sm:text-left">
-          <li class="hover:text-green-300"><a href="#">Home</a></li>
-          <li class="hover:text-green-300"><a href="#">Latest</a></li>
-          <li class="hover:text-green-300"><a href="#">Sports</a></li>
-          <li class="hover:text-green-300"><a href="#">Politics</a></li>
-          <li class="hover:text-green-300"><a href="#">Fashion</a></li>
-          <li class="hover:text-green-300"><a href="#">Business</a></li>
-      </ul>
-      </div>
+  <!-- Divider -->
+  <div class="border-t border-gray-700 my-6"></div>
 
-      <!-- Divider -->
-      <div class="border-t border-gray-700 my-6"></div>
+  <!-- Bottom Section -->
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-col lg:flex-row justify-between items-center gap-6 text-sm">
+    <!-- Social Media Icons -->
+    <div class="flex justify-center lg:justify-start gap-4">
+      <a href="#" class="hover:text-white" target="_blank">
+        <ion-icon name="logo-facebook" class="text-xl"></ion-icon>
+      </a>
+      <a href="#" class="hover:text-white" target="_blank">
+        <ion-icon name="logo-twitter" class="text-xl"></ion-icon>
+      </a>
+      <a href="#" class="hover:text-white" target="_blank">
+        <ion-icon name="logo-instagram" class="text-xl"></ion-icon>
+      </a>
+      <a href="#" class="hover:text-white" target="_blank">
+        <ion-icon name="logo-linkedin" class="text-xl"></ion-icon>
+      </a>
+      <a href="#" class="hover:text-white" target="_blank">
+        <ion-icon name="logo-github" class="text-xl"></ion-icon>
+      </a>
+    </div>
 
-      <!-- Social & Legal -->
-      <div
-      class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 text-sm text-center sm:text-left">
+    <!-- Legal Info -->
+    <div class="text-center lg:text-right">
+      <p>© 2025 Team404. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
-      <!-- Social Media Icons -->
-      <div class="flex justify-center lg:justify-start gap-4 w-full lg:w-auto">
-          <a href="" target="_blank" class="hover:text-white"><ion-icon name="logo-facebook" class="text-xl"></ion-icon></a>
-          <a href="" class="hover:text-white" target="_blank"><ion-icon name="logo-twitter" class="text-xl"></ion-icon></a>
-          <a href="" target="_blank" class="hover:text-white"><ion-icon name="logo-instagram" class="text-xl"></ion-icon></a>
-          <a href="" target="_blank" class="hover:text-white"><ion-icon name="logo-linkedin" class="text-xl"></ion-icon></a>
-          <a href="" class="hover:text-white" target="_blank"><ion-icon name="logo-github" class="text-xl"></ion-icon></a>
-      </div>
-
-      <!-- Legal Info -->
-      <div class="text-center lg:text-right w-full lg:w-auto">
-          <p>© 2025 NEWS@404. All rights reserved.</p>
-          <p>Designed by PTB <a href="" target="_blank" class="hover:underline">404</a></p>
-      </div>
-      </div>
-  </footer>
   <!-- Footer ends here -->
 
 
-    <script>
+    <script src="script.js">
 
-          document.addEventListener("DOMContentLoaded", function() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            function menuHam(e){
-    
-            e.name = e.name === 'menu-outline' ? 'close-outline' : 'menu-outline';
-
-            }
-    
-
-            document.querySelector('label[for="menu-toggle"]').addEventListener("click", function() {
-                
-                menuToggle.checked = !menuToggle.checked;
-
-                if (menuToggle.checked) {
-                    mobileMenu.classList.toggle('hidden');
-                }
-            });
-          }); 
+         
 
 
 
 
         // SCRIPT FOR COMMENT
 
-              let button = document.getElementById('drop');
-              let content = document.getElementById('down')
+      //         let button = document.getElementById('drop');
+      //         let content = document.getElementById('down')
 
-                button.addEventListener("click", (e) => {
+      //           button.addEventListener("click", (e) => {
           
-          content.classList.toggle('hidden')
+      //     content.classList.toggle('hidden')
           
-      })
+      // })
 
     </script>
   </body>
