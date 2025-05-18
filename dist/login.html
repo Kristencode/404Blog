@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./output.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 Login Form</title>
+  <link rel="stylesheet" href="./output.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1 class="bg-green-800">hello</h1>
+<body class="min-h-screen bg-gray-100">
+
+  <!-- Wrapper to make footer stick to bottom -->
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Main Content (Form) -->
+    <main class="flex-grow flex items-center justify-center px-4 py-8">
+      <div class="bg-white rounded-3xl p-6 w-full max-w-sm shadow-lg border border-red-300">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 text-center">Login</h2>
+
+        <form class="space-y-4">
+          <!-- Email Field -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              class="w-full px-4 py-2 text-sm border border-red-200 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            />
+          </div>
+
+          <!-- Password Field -->
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder=".........."
+              class="w-full px-4 py-2 text-sm border border-red-200 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <div>
+            <button
+              type="submit"
+              id="submit"
+              class="w-full bg-red-600 hover:bg-red-500 text-white font-semibold py-2 rounded-md transition-colors text-base"
+            >
+              Login
+            </button>
+          </div>
+
+          <!-- Forgot Password Link -->
+          <div class="text-center mt-2">
+            <a href="#" class="text-sm text-red-500 hover:text-red-700 transition-colors">
+              Forgot Password?
+            </a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-50 text-gray-300 px-4 sm:px-6 py-6 border-t border-gray-300">
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 text-sm text-center sm:text-left">
+        <!-- Social Media Icons -->
+        <div class="flex justify-center lg:justify-start gap-4 w-full lg:w-auto">
+          <a href="#" class="hover:text-red-800">
+            <ion-icon name="logo-facebook" class="text-xl text-red-500"></ion-icon>
+          </a>
+          <a href="#" class="hover:text-red-800">
+            <ion-icon name="logo-twitter" class="text-xl text-red-500"></ion-icon>
+          </a>
+          <a href="#" class="hover:text-red-800">
+            <ion-icon name="logo-instagram" class="text-xl text-red-500"></ion-icon>
+          </a>
+          <a href="#" class="hover:text-red-800">
+            <ion-icon name="logo-youtube" class="text-xl text-red-500"></ion-icon>
+          </a>
+        </div>
+
+        <div class="text-center flex lg:text-right w-full lg:w-auto text-red-500">
+          <p>Designed by <a href="#" class="hover:underline">404</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
