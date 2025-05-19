@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formCon.reset();
 
         setTimeout(function () {
-          window.location.href = "http://127.0.0.1:5503/dist/login.html";
+          window.location.href = "/dist/login.html";
         }, 1000);
       })
       .catch(function (err) {
@@ -150,7 +150,7 @@ fetch("https://test.blockfuselabs.com/api/login", {
     formCon.reset();
 
     setTimeout(function () {
-      window.location.href = "http://127.0.0.1:5503/dist/dashboard.html"; // change to your desired page
+      window.location.href = "/dist/index.html"; // change to your desired page
     }, 1000);
   })
   .catch(function (err) {
@@ -234,9 +234,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         setTimeout(function () {
-          window.location.href = "index.html"; // or wherever you want to redirect
+          window.location.href = "/dist/index.html"; // or wherever you want to redirect
         }, 1000);
       });
-
   });
 });
