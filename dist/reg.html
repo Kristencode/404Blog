@@ -8,113 +8,114 @@
   </head>
   <body class="min-h-screen flex flex-col bg-gray-100">
     <nav
-      class="bg-slate-50 w-full mt-0 shadow-sm sticky top-0 z-50 border-b border-gray-300"
-      aria-label="Main navigation"
+    class="bg-slate-50 w-full mt-0 shadow-sm sticky top-0 z-50 border-b border-gray-300 lg:hidden"
+    aria-label="Main navigation"
+  >
+    <div
+      class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
     >
-      <div
-        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
+      <a href="#" class="text-2xl font-extrabold text-red-600 tracking-wide"
+        >News<span class="text-gray-800">404</span></a
       >
-        <a href="#" class="text-2xl font-extrabold text-red-600 tracking-wide"
-          >News<span class="text-gray-800">404</span></a
-        >
-        <ul class="hidden md:flex space-x-10 font-semibold text-slate-900">
-          <li>
-            <a
-              href="#"
-              class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Latest</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Sports</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Politics</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Fashion</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-              >Business</a
-            >
-          </li>
-        </ul>
-        <div class="font-semibold text-gray-700 lg:flex gap-4 hidden">
-          <button
-            class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
+      <ul class="hidden md:flex space-x-10 font-semibold text-slate-900">
+        <li>
+          <a
+            href="#"
+            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
+            >Home</a
           >
-            <a href="">Sign In</a>
-          </button>
-          <button
-            class="bg-red-700 text-white p-1 lg:px-2 rounded-md ease-in-out hover:scale-105 transition-transform duration-900"
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
+            >Latest</a
           >
-            <a href="reg.html">Sign Up</a>
-          </button>
-        </div>
-
-        <input type="checkbox" id="menu-toggle" class="hidden" />
-        <label
-          for="menu-toggle"
-          class="md:hidden cursor-pointer"
-          aria-label="Toggle mobile menu"
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
+            >Sports</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
+            >Politics</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
+            >Fashion</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
+            >Business</a
+          >
+        </li>
+      </ul>
+      <div class="font-semibold text-gray-700 lg:flex gap-4 hidden">
+        <button
+          class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
         >
-          <ion-icon
-            name="menu-outline"
-            class="text-3xl"
-            onclick="menuHam(e)"
-          ></ion-icon>
-        </label>
+          <a href="">Sign In</a>
+        </button>
+        <button
+          class="bg-red-700 text-white p-1 lg:px-2 rounded-md ease-in-out hover:scale-105 transition-transform duration-900"
+        >
+          <a href="reg.html">Sign Up</a>
+        </button>
       </div>
-      <div id="mobile-menu" class="hidden">
-        <ul
-          class="flex flex-col space-y-3 px-6 py-4 font-semibold text-gray-700"
-        >
-          <li><a href="#" class="nav-link">Home</a></li>
-          <li><a href="#" class="nav-link">Latest</a></li>
-          <li><a href="#" class="nav-link">Sports</a></li>
-          <li><a href="#" class="nav-link">Politics</a></li>
-          <li><a href="#" class="nav-link">Fashion</a></li>
-          <li><a href="#" class="nav-link">Business</a></li>
-        </ul>
 
-        <div
-          class="font-semibold text-gray-700 flex-col flex gap-2 lg:hidden mb-5"
+      <input type="checkbox" id="menu-toggle" class="hidden" />
+      <label
+        for="menu-toggle"
+        class="hidden cursor-pointer"
+        aria-label="Toggle mobile menu"
+      >
+        <ion-icon
+          name="menu-outline"
+          class="text-3xl"
+          onclick="menuHam(e)"
+        ></ion-icon>
+      </label>
+    </div>
+    <div id="mobile-menu" class="hidden">
+      <ul
+        class="flex flex-col space-y-3 px-6 py-4 font-semibold text-gray-700"
+      >
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">Latest</a></li>
+        <li><a href="#" class="nav-link">Sports</a></li>
+        <li><a href="#" class="nav-link">Politics</a></li>
+        <li><a href="#" class="nav-link">Fashion</a></li>
+        <li><a href="#" class="nav-link">Business</a></li>
+      </ul>
+
+      <div
+        class="font-semibold text-gray-700 flex-col flex gap-2 lg:hidden mb-5"
+      >
+        <button
+          class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
         >
-          <button
-            class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-          >
-            <a href="">Sign In</a>
-          </button>
-          <button
-            class="bg-red-700 text-white p-1 lg:px-2 rounded-sm ease-in-out hover:scale-105 transition-transform duration-900 w-auto mx-5"
-          >
-            <a href="reg.html">Sign Up</a>
-          </button>
-        </div>
+          <a href="">Sign In</a>
+        </button>
+        <button
+          class="bg-red-700 text-white p-1 lg:px-2 rounded-sm ease-in-out hover:scale-105 transition-transform duration-900 w-auto mx-5"
+        >
+          <a href="reg.html">Sign Up</a>
+        </button>
       </div>
-    </nav>
+    </div>
+  </nav>
+
 
     <!-- form div -->
     <div class="flex justify-center items-center min-h-screen text">
