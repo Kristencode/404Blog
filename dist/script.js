@@ -18,9 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let formCon = document.querySelector("#regForm");
   let plus = document.querySelector("#plus");
+  let submitBtn = document.querySelector("#submit");
 
   formCon.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Registering...";
 
     let newFormOBj = new FormData(formCon);
 
@@ -30,6 +34,39 @@ document.addEventListener("DOMContentLoaded", function () {
       password: newFormOBj.get("password"),
       team: newFormOBj.get("team"),
     };
+
+
+    // checks if input field is empty
+
+      if (!data.name || !data.email || !data.password || !data.team) {
+        showMessage("Please fill in all fields.", "orange");
+        resetButton();
+        return;
+      }
+
+
+      // checks if password is less than 8
+
+       if (data.password.length < 8) {
+         showMessage("Password must be at least 6 characters long.", "orange");
+         resetButton();
+         return;
+       }
+       
+function showMessage(msg, color) {
+  plus.innerText = msg;
+  plus.style.color = color;
+  plus.style.fontWeight = "bold";
+  plus.style.marginTop = "10px";
+}
+
+function resetButton() {
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Register";
+}
+
+
+// api starts here
 
     fetch("https://test.blockfuselabs.com/api/register", {
       method: "POST",
@@ -43,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(function (data) {
         console.log(data);
-        plus.innerText = "Registration successful";
+        plus.innerText = ` ${data.name} Registration successful`;
         plus.style.color = "green";
         formCon.reset();
         window.location.href = "http://127.0.0.1:5503/dist/login.html";
