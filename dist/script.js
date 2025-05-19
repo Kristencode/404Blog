@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
           try {
             json = JSON.parse(text);
           } catch (e) {
-            // If response is HTML or not JSON, show error
+            
             throw new Error("Server returned an invalid response.");
           }
 
@@ -119,7 +119,7 @@ fetch("https://test.blockfuselabs.com/api/login", {
   headers: {
     "Content-Type": "application/json",
   },
-  body: JSON.stringify(data), // data should have { email, password }
+  body: JSON.stringify(data),
 })
   .then(function (res) {
     return res.text().then(function (text) {
@@ -142,7 +142,7 @@ fetch("https://test.blockfuselabs.com/api/login", {
     plus.innerText = `Welcome back, ${data.user?.name || "User"}!`;
     plus.style.color = "green";
 
-    // Store token if provided
+    
     if (data.token) {
       localStorage.setItem("authToken", data.token);
     }
@@ -150,7 +150,7 @@ fetch("https://test.blockfuselabs.com/api/login", {
     formCon.reset();
 
     setTimeout(function () {
-      window.location.href = "/dist/index.html"; // change to your desired page
+      window.location.href = "/dist/index.html";
     }, 1000);
   })
   .catch(function (err) {
@@ -165,7 +165,7 @@ fetch("https://test.blockfuselabs.com/api/login", {
     }
 
     plus.style.color = "red";
-    resetButton(); // re-enable button, etc.
+    resetButton();
   });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const passwordInput = form.querySelector("input[name='password']");
   const submitBtn = document.getElementById("submit");
 
-  // Optional: create a message display element
+  
   const message = document.createElement("p");
   message.id = "plus";
   message.className = "text-center text-sm mt-2";
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         setTimeout(function () {
-          window.location.href = "/dist/index.html"; // or wherever you want to redirect
+          window.location.href = "/dist/index.html"; 
         }, 1000);
       });
   });
