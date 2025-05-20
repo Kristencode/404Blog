@@ -98,7 +98,7 @@ Here we collect some of the day's most powerful news photographs.
 
 
    <!-- Comment Section Container -->
-<!-- Comment Section Container -->
+
 <div class="flex justify-center mt-16 lg:mt-20">
   <div class="w-full max-w-2xl bg-gray-100 rounded-lg shadow-md p-6">
 
@@ -113,19 +113,19 @@ Here we collect some of the day's most powerful news photographs.
         Comment</button>
     </div>
 
-    <!-- Comment List -->
+  
     <div id="commentList" class="space-y-4">
-      <!-- New comments will appear here -->
+  
     </div>
 
   </div>
 </div>
 
-<!-- Ionicons for user icon -->
+
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-<!-- Script to Add Comments -->
+
 <script>
   const postButton = document.getElementById('postComment');
   const commentInput = document.getElementById('commentInput');
@@ -135,7 +135,7 @@ Here we collect some of the day's most powerful news photographs.
     const commentText = commentInput.value.trim();
 
     if (commentText !== "") {
-      // Create a comment element
+     
       const comment = document.createElement('div');
       comment.className = "bg-white p-4 rounded-md shadow flex gap-3 items-start";
 
@@ -147,7 +147,7 @@ Here we collect some of the day's most powerful news photographs.
         </div>
       `;
 
-      // Append the comment and clear input
+      
       commentList.appendChild(comment);
       commentInput.value = "";
     } else {
