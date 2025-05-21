@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileMenu.classList.toggle("hidden");
       }
     });
-
   // REGISTER FORM
   let form = document.getElementById("regForm");
   let submitBtn = document.getElementById("submit");
@@ -19,6 +18,28 @@ document.addEventListener("DOMContentLoaded", function () {
   responseMessage.id = "responseMessage";
   responseMessage.className = "text-sm text-center mt-2";
   submitBtn.parentElement.insertBefore(responseMessage, submitBtn.nextSibling);
+
+  // Auto-fill registration form if data exists in localStorage
+  if (form) {
+    let savedUser = localStorage.getItem("registeredUser");
+    if (savedUser) {
+      try {
+        let userData = JSON.parse(savedUser);
+        if (userData.name) {
+          document.getElementById("fullName").value = userData.name;
+        }
+        if (userData.email) {
+          document.getElementById("email").value = userData.email;
+        }
+        if (userData.team_name) {
+          document.getElementById("teamName").value = userData.team_name;
+        }
+        // Note: For security, do NOT autofill password from localStorage
+      } catch (e) {
+        console.warn("Could not parse saved user data:", e);
+      }
+    }
+  }
 
   if (form && submitBtn) {
     form.addEventListener("submit", function (event) {
@@ -71,6 +92,12 @@ document.addEventListener("DOMContentLoaded", function () {
             responseMessage.textContent =
               result.body.user.name + ", registration successful!";
             responseMessage.className = "text-green-600 text-sm text-center";
+
+            // data to localStorage
+            localStorage.setItem(
+              "registeredUser",
+              JSON.stringify(result.body.user)
+            );
 
             form.reset();
             window.location.href = "/dist/login.html";
@@ -158,4 +185,62 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   }
+
+  // ====== Fetch and display blog categories ======
+
 });
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+   const dropdown = document.getElementById("categoryDropdown");
+
+   const allowedCategories = [
+     "health",
+     "business",
+     "sports",
+     "entertainment",
+     "food",
+     "technology",
+   ];
+
+   if (dropdown) {
+     fetch("https://test.blockfuselabs.com/api/categories")
+       .then((response) => response.json())
+       .then((result) => {
+         const categories = result.data;
+
+         if (Array.isArray(categories)) {
+           const filtered = categories.filter((cat) =>
+             allowedCategories.includes(cat.slug.toLowerCase())
+           );
+
+           if (filtered.length > 0) {
+             dropdown.innerHTML = `<option value="" disabled selected>Category</option>`;
+
+             filtered.forEach((category) => {
+               const option = document.createElement("option");
+               option.value = category.slug;
+               option.textContent = category.name;
+               dropdown.appendChild(option);
+             });
+
+             dropdown.addEventListener("change", function () {
+               const selected = dropdown.value;
+               if (selected) {
+                 window.location.href = `/dist/index.html#${selected}`;
+                 window.location.reload();
+               }
+             });
+           } else {
+             dropdown.innerHTML = `<option value="">No allowed categories found</option>`;
+           }
+         } else {
+           dropdown.innerHTML = `<option value="">No categories available</option>`;
+         }
+       })
+       .catch((error) => {
+         console.error("Error fetching categories:", error);
+         dropdown.innerHTML = `<option value="">Failed to load categories</option>`;
+       });
+   }
+ });
