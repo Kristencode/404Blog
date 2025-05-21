@@ -69,12 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (result) {
           if (result.ok) {
             responseMessage.textContent =
-               result.body.user.name + ", registration successful!";
+              result.body.user.name + ", registration successful!";
             responseMessage.className = "text-green-600 text-sm text-center";
+
             form.reset();
+            window.location.href = "/dist/login.html";
           } else {
             responseMessage.textContent =
-               (result.body.message || "Registration failed");
+              result.body.message || "Registration failed";
             responseMessage.className = "text-red-600 text-sm text-center";
           }
         })
