@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // MENU TOGGLE
-  var menuToggle = document.getElementById("menu-toggle");
-  var mobileMenu = document.getElementById("mobile-menu");
+  let menuToggle = document.getElementById("menu-toggle");
+  let mobileMenu = document.getElementById("mobile-menu");
 
   document
     .querySelector('label[for="menu-toggle"]')
@@ -24,20 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      var name = document.getElementById("fullName").value.trim();
-      var email = document.getElementById("email").value.trim();
-      var password = document.getElementById("password1").value.trim();
-      var team = document.getElementById("teamName").value.trim();
+      let name = document.getElementById("fullName").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password1").value.trim();
+      let team = document.getElementById("teamName").value.trim();
 
       if (!name || !email || !password || !team) {
-        responseMessage.textContent = "⚠️ Please fill in all fields.";
+        responseMessage.textContent = " Please fill in all fields.";
         responseMessage.className = "text-red-600 text-sm text-center";
         return;
       }
 
       if (password.length < 8) {
         responseMessage.textContent =
-          "⚠️ Password must be at least 8 characters.";
+          " Password must be at least 8 characters.";
         responseMessage.className = "text-red-600 text-sm text-center";
         return;
       }
@@ -69,18 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (result) {
           if (result.ok) {
             responseMessage.textContent =
-              "✅ " + result.body.user.name + ", registration successful!";
+               result.body.user.name + ", registration successful!";
             responseMessage.className = "text-green-600 text-sm text-center";
             form.reset();
           } else {
             responseMessage.textContent =
-              "❌ " + (result.body.message || "Registration failed");
+               (result.body.message || "Registration failed");
             responseMessage.className = "text-red-600 text-sm text-center";
           }
         })
         .catch(function (error) {
           console.error("Error:", error);
-          responseMessage.textContent = "❌ Network error. Try again.";
+          responseMessage.textContent = " Network error. Try again.";
           responseMessage.className = "text-red-600 text-sm text-center";
         })
         .finally(function () {
@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      var email = loginForm.elements["email"].value.trim();
-      var password = loginForm.elements["password"].value.trim();
+      let email = loginForm.elements["email"].value.trim();
+      let password = loginForm.elements["password"].value.trim();
 
       if (!email || !password) {
         message.innerText = "Please enter both email and password.";
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      var data = { email: email, password: password };
+      let data = { email: email, password: password };
       message.innerText = "Logging in...";
       message.style.color = "gray";
 
