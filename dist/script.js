@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // MENU TOGGLE
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
+  var menuToggle = document.getElementById("menu-toggle");
+  var mobileMenu = document.getElementById("mobile-menu");
 
   document
     .querySelector('label[for="menu-toggle"]')
@@ -13,100 +13,93 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   // REGISTER FORM
-  const formCon = document.querySelector("#regForm");
-  const plus = document.querySelector("#plus");
-  const submitBtn = document.querySelector("#submit");
+  let form = document.getElementById("regForm");
+  let submitBtn = document.getElementById("submit");
+  let responseMessage = document.createElement("div");
+  responseMessage.id = "responseMessage";
+  responseMessage.className = "text-sm text-center mt-2";
+  submitBtn.parentElement.insertBefore(responseMessage, submitBtn.nextSibling);
 
-  if (formCon) {
-    formCon.addEventListener("submit", function (e) {
-      e.preventDefault();
+  if (form && submitBtn) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var name = document.getElementById("fullName").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var password = document.getElementById("password1").value.trim();
+      var team = document.getElementById("teamName").value.trim();
+
+      if (!name || !email || !password || !team) {
+        responseMessage.textContent = "⚠️ Please fill in all fields.";
+        responseMessage.className = "text-red-600 text-sm text-center";
+        return;
+      }
+
+      if (password.length < 8) {
+        responseMessage.textContent =
+          "⚠️ Password must be at least 8 characters.";
+        responseMessage.className = "text-red-600 text-sm text-center";
+        return;
+      }
 
       submitBtn.disabled = true;
-      submitBtn.innerText = "Registering...";
-
-      const newFormObj = new FormData(formCon);
-      const data = {
-        name: newFormObj.get("name"),
-        email: newFormObj.get("email"),
-        password: newFormObj.get("password"),
-        team: newFormObj.get("team"),
-      };
-
-      function showMessage(msg, color) {
-        plus.innerText = msg;
-        plus.style.color = color;
-        plus.style.fontWeight = "bold";
-        plus.style.marginTop = "10px";
-      }
-
-      function resetButton() {
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Register";
-      }
-
-      if (!data.name || !data.email || !data.password || !data.team) {
-        showMessage("Please fill in all fields.", "red");
-        resetButton();
-        return;
-      }
-
-      if (data.password.length < 8) {
-        showMessage("Password must be at least 8 characters long.", "red");
-        resetButton();
-        return;
-      }
+      submitBtn.textContent = "Registering...";
 
       fetch("https://test.blockfuselabs.com/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          team_name: team,
+        }),
       })
-        .then(async function (res) {
-          const text = await res.text();
-          let json;
-          try {
-            json = JSON.parse(text);
-          } catch (e) {
-            throw new Error("Server returned an invalid response.");
-          }
-          if (!res.ok) {
-            throw new Error(json.error || "Registration failed");
-          }
-          return json;
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return {
+              status: response.status,
+              ok: response.ok,
+              body: data,
+            };
+          });
         })
-        .then(function () {
-          showMessage("Registration successful", "green");
-          formCon.reset();
-          setTimeout(function () {
-            window.location.href = "/dist/login.html";
-          }, 1000);
-        })
-        .catch(function (err) {
-          if (err.message.toLowerCase().includes("email")) {
-            showMessage(
-              "This email is already registered. Please log in or use another email.",
-              "red"
-            );
+        .then(function (result) {
+          if (result.ok) {
+            responseMessage.textContent =
+              "✅ " + result.body.user.name + ", registration successful!";
+            responseMessage.className = "text-green-600 text-sm text-center";
+            form.reset();
           } else {
-            showMessage(err.message, "red");
+            responseMessage.textContent =
+              "❌ " + (result.body.message || "Registration failed");
+            responseMessage.className = "text-red-600 text-sm text-center";
           }
-          resetButton();
+        })
+        .catch(function (error) {
+          console.error("Error:", error);
+          responseMessage.textContent = "❌ Network error. Try again.";
+          responseMessage.className = "text-red-600 text-sm text-center";
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Register";
         });
     });
   }
 
   // LOGIN FORM
-  const loginForm = document.querySelector("form");
-  const message = document.getElementById("message");
+  var loginForm = document.querySelector("form");
+  var message = document.getElementById("message");
 
   if (loginForm && message) {
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const email = loginForm.elements["email"].value.trim();
-      const password = loginForm.elements["password"].value.trim();
+      var email = loginForm.elements["email"].value.trim();
+      var password = loginForm.elements["password"].value.trim();
 
       if (!email || !password) {
         message.innerText = "Please enter both email and password.";
@@ -114,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const data = { email, password };
+      var data = { email: email, password: password };
       message.innerText = "Logging in...";
       message.style.color = "gray";
 
@@ -125,21 +118,23 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         body: JSON.stringify(data),
       })
-        .then(async function (res) {
-          const text = await res.text();
-          let json;
-          try {
-            json = JSON.parse(text);
-          } catch (e) {
-            throw new Error("Server returned an invalid response.");
-          }
-          if (!res.ok) {
-            throw new Error(json.error || "Login failed");
-          }
-          return json;
+        .then(function (res) {
+          return res.text().then(function (text) {
+            var json;
+            try {
+              json = JSON.parse(text);
+            } catch (e) {
+              throw new Error("Server returned an invalid response.");
+            }
+            if (!res.ok) {
+              throw new Error(json.error || "Login failed");
+            }
+            return json;
+          });
         })
         .then(function (data) {
-          message.innerText = `Welcome back, ${data.user?.name || "User"}!`;
+          message.innerText =
+            "Welcome back, " + (data.user?.name || "User") + "!";
           message.style.color = "green";
           loginForm.reset();
 
