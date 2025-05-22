@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password, team_name: team }),
+
         });
         const data = await response.json();
 
@@ -231,6 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (response.ok) {
           message.textContent = `Welcome back, ${data.user?.name || "User"}!`;
+
           message.style.color = "green";
           sessionStorage.setItem("authToken", data.token);
           sessionStorage.setItem("userData", JSON.stringify(data.user));
@@ -520,7 +522,6 @@ function showMessage(text, isError = false) {
   messageDiv.style.display = "block";
   setTimeout(() => (messageDiv.style.display = "none"), 10000);
 }
-
 // Load posts dynamically (for index.html)
 async function loadPosts(container, searchQuery = null) {
   container.innerHTML = `<p class="text-center text-gray-600 animate-pulse">Loading posts...</p>`;
