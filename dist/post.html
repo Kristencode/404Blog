@@ -1,189 +1,92 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create a Post</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  </head>
-  <body class="bg-gray-100 flex flex-col items-center min-h-screen">
-
-     <nav class=" bg-slate-50  shadow-sm sticky top-0 z-50 border-b border-gray-300 w-full" aria-label="Main navigation">
-      <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        <a href="#" class="text-2xl font-extrabold text-red-600 tracking-wide">News<span class="text-gray-800">404</span></a>
-        <ul class=" justify-center items-center hidden md:flex space-x-10 font-semibold text-slate-900">
-          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Home</a></li>
-          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Latest</a></li>
-           <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Health</a></li>
-            <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Sports</a></li>
-          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Entertainment</a></li>
-          <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Business</a></li>
-           <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Food</a></li>
-            <li><a href="#" class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500">Technology</a></li>
-          <div class="container mx-auto p-4">
- <select id="categoryDropdown" class="border border-red-500 p-2 rounded w-32 lg:hidden">
-  <option> </option>
-</select>
-
-</div>
-                
-        </ul>
-        <div class=" font-semibold text-gray-700 lg:flex gap-4 hidden ">
-          <button class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"><a href="">Sign In</a></button>
-          <button class="bg-red-500 text-white p-1 lg:px-2 rounded-md ease-in-out hover:scale-105 transition-transform duration-900"><a href="reg.html">Sign Up</a></button>          
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News404</title>
+  <link href="/dist/output.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="/dist/index.html" class="text-2xl font-bold text-gray-900">News404</a>
+        <div id="navLinks" class="hidden md:flex space-x-10">
+          <a href="/dist/index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="/dist/index.html#latest" class="text-gray-600 hover:text-gray-900">Latest</a>
+          <!-- Dynamic categories -->
         </div>
-
-
-        <input type="checkbox" id="menu-toggle" class="hidden" />
-        <label for="menu-toggle" class="md:hidden cursor-pointer" aria-label="Toggle mobile menu">
-          <ion-icon name="menu-outline" class="text-3xl" onclick="menuHam(e)"></ion-icon>
+        <div id="authLinks" class="hidden md:flex space-x-10">
+          <a href="/dist/login.html" class="text-gray-600 hover:text-gray-900">Sign In</a>
+          <a href="/dist/reg.html" class="text-gray-600 hover:text-gray-900">Sign Up</a>
+          <button id="signOut" class="hidden text-gray-600 hover:text-gray-900">Sign Out</button>
+        </div>
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
         </label>
       </div>
-      <div id="mobile-menu" class="hidden">
-        <ul class="flex flex-col space-y-3 px-6 py-4 font-semibold text-gray-700">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="#" class="nav-link">Sports</a></li>
-          <li><a href="#" class="nav-link">Politics</a></li>
-          <li><a href="#" class="nav-link">Fashion</a></li>
-          <li><a href="#" class="nav-link">Business</a></li>
-        </ul>
-
-
-        <div class=" font-semibold text-gray-700 flex-col flex gap-2 lg:hidden mb-5 ">
-
-          <button class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"><a href="">Sign In</a></button>
-          <button class="bg-red-700 text-white p-1 lg:px-2 rounded-sm ease-in-out hover:scale-105 transition-transform duration-900 w-auto mx-5" ><a href="reg.html">Sign Up</a></button>          
-        </div>
+      <input type="checkbox" id="menu-toggle" class="hidden" />
+      <div id="mobile-menu" class="md:hidden hidden mt-4">
+        <a href="/dist/index.html" class="block py-2 text-gray-600 hover:text-gray-900">Home</a>
+        <a href="/dist/index.html#latest" class="block py-2 text-gray-600 hover:text-gray-900">Latest</a>
+        <!-- Dynamic categories -->
+        <a href="/dist/login.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign In</a>
+        <a href="/dist/reg.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign Up</a>
+        <button id="mobileSignOut" class="hidden block py-2 text-gray-600 hover:text-gray-900">Sign Out</button>
       </div>
     </nav>
-    <div class="bg-white rounded-2xl shadow-md w-full max-w-xl p-6 space-y-6 mt-20">
-      <h2 class="text-2xl font-bold text-gray-800">Create a Post</h2>
+  </header>
 
-      <!-- Title Input -->
-      <div>
-        <label for="title" class="block text-sm font-medium text-gray-700"
-          >Post Title</label
-        >
-        <input
-          type="text"
-          id="title"
-          placeholder="Enter a catchy title..."
-          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        />
+  <main class="container mx-auto px-6 py-8">
+    <h1 class="text-3xl font-bold mb-6">Create a New Post</h1>
+    <form id="postForm" class="max-w-md mx-auto">
+      <div class="mb-4">
+        <label for="title" class="block text-gray-700 mb-1">Title</label>
+        <input type="text" id="title" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-green-400" required />
       </div>
-
-      <!-- Description Textarea -->
-      <div>
-        <label for="description" class="block text-sm font-medium text-gray-700"
-          >Description</label
-        >
-        <textarea
-          id="description"
-          rows="5"
-          placeholder="Write something awesome..."
-          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        ></textarea>
+      <div class="mb-4">
+        <label for="author" class="block text-gray-700 mb-1">Author</label>
+        <input type="text" id="author" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-green-400" required />
       </div>
-
-      <!-- Image Upload -->
-      <!-- <div>
-        <label for="image" class="block text-sm font-medium text-gray-700"
-          >Upload Image (optional)</label
-        >
-        <input
-          type="file"
-          id="image"
-          accept="image/*"
-          class="mt-1 w-full text-gray-700 border border-gray-300 rounded-lg px-3 py-2 file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-        />
-      </div> -->
-
-      <!-- Submit Button -->
-      <div class="text-right">
-        <button
-          id="post"
-          class="bg-red-500 w-full text-white px-6 py-2 rounded-lg hover:bg-blue-red transition duration-200"
-        >
-          Post
-        </button>
+      <div class="mb-4">
+        <label for="content" class="block text-gray-700 mb-1">Content</label>
+        <textarea id="content" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-green-400" rows="6" required></textarea>
       </div>
-
-      <!-- get post -->
-      <div class="p-4 max-w-md mx-auto bg-white rounded-lg shadow">
-        <input
-          type="number"
-          id="postInput"
-          placeholder="Enter something..."
-          class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <button
-          id="submitPost"
-          class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-700 transition"
-        >
-          GetPost
-        </button>
-        <p class="pt-2" id="items"></p>
+      <div class="mb-4">
+        <label for="categoryId" class="block text-gray-700 mb-1">Category</label>
+        <select id="categoryId" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-green-400" required>
+          <option value="" disabled selected>Loading categories...</option>
+        </select>
       </div>
+      <div class="mb-4">
+        <label for="featuredImage" class="block text-gray-700 mb-1">Featured Image (optional)</label>
+        <input type="file" id="featuredImage" accept="image/*" class="hidden" />
+        <label for="featuredImage" class="block p-3 border rounded-md bg-white cursor-pointer text-center">
+          <span id="fileName" class="text-gray-600">Choose image</span>
+        </label>
+      </div>
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Submit</button>
+    </form>
+    <div id="formMessage" class="hidden"></div>
+  </main>
+
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <a href="/dist/index.html" class="text-2xl font-bold">NEWS404</a>
+        <div id="footerNavLinks" class="flex space-x-10 mt-4 md:mt-0">
+          <a href="/dist/index.html" class="hover:text-gray-300">Home</a>
+          <a href="/dist/index.html#latest" class="hover:text-gray-300">Latest</a>
+          <!-- Dynamic categories -->
+        </div>
+      </div>
+      <p class="text-center mt-6">© 2025 Team404. All rights reserved.</p>
     </div>
-
-    <script>
-      let button = document.getElementById("post");
-
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        let title = document.getElementById("title").value;
-        let content = document.getElementById("description").value;
-
-        let user = {
-          title,
-          content,
-        };
-
-        fetch("https://test.blockfuselabs.com/api/posts", {
-          method: "POST",
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: title,
-            content: content,
-          }),
-        }).then((response) => {
-          console.log("Post created:", response);
-          toastr.success("Post Successfull!");
-          localStorage.setItem(user, JSON.stringify(user));
-        });
-      });
-
-      let button2 = document.getElementById("submitPost")
-      let items = document.getElementById("items")
-
-      button2.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        let postId = document.getElementById("postInput").value;
-
-
-fetch("https://test.blockfuselabs.com/api/posts/45").then(response => response.json()).then(data => {
-            console.log("Fetched post:", data);
-            let house = document.createElement("p")
-                house.innerHTML = `<strong>${data.title}</strong><br>${data.content}`
-                house.className = "gap-2"
-
-            items.appendChild(house)
-        })
-      })
-    </script>
-
- 
-  </body>
+  </footer>
+  <script src="/dist/post.js"></script>
+  <script src="/dist/script.js"></script>
+</body>
 </html>
