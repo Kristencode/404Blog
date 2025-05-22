@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (result) {
           if (result.ok) {
             responseMessage.textContent =
-              result.body.user.name + ", registration successful!";
+              result.body.user.name + toastr.success("Data  successfully!");;
             responseMessage.className = "text-green-600 text-sm text-center";
 
             // data to localStorage
@@ -103,13 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "/dist/login.html";
           } else {
             responseMessage.textContent =
-              result.body.message || "Registration failed";
+              result.body.message || toastr.error("Something went wrong");
             responseMessage.className = "text-red-600 text-sm text-center";
           }
         })
         .catch(function (error) {
           console.error("Error:", error);
-          responseMessage.textContent = " Network error. Try again.";
+          responseMessage.textContent = 
+      
           responseMessage.className = "text-red-600 text-sm text-center";
         })
         .finally(function () {
@@ -156,7 +157,9 @@ document.addEventListener("DOMContentLoaded", function () {
               throw new Error("Server returned an invalid response.");
             }
             if (!res.ok) {
-              throw new Error(json.error || "Login failed");
+              throw new Error(
+      toastr.error('Something went wrong.'))
+      
             }
             return json;
           });
