@@ -116,5 +116,52 @@
       
       
         <!-- Footer ends here -->
+
+
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var submitBtn = document.querySelector('button');
+    var titleInput = document.getElementById('title');
+    var authorSelect = document.getElementById('author');
+    var dateInput = document.getElementById('date');
+    var timeInput = document.getElementById('time');
+    var summaryInput = document.getElementById('summary');
+    var bodyInput = document.getElementById('body');
+    var linkSelect = document.getElementById('link');
+
+    submitBtn.addEventListener('click', function () {
+      var postData = {
+        title: titleInput.value,
+        author: authorSelect.value,
+        date: dateInput.value,
+        time: timeInput.value,
+        summary: summaryInput.value,
+        body: bodyInput.value,
+        link: linkSelect.value
+      };
+
+      fetch('https://test.blockfuselabs.com/api/createpost', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+      })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        alert('Post submitted successfully!');
+        console.log(data);
+      })
+      .catch(function (error) {
+        alert('An error occurred while submitting the post.');
+        console.error(error);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

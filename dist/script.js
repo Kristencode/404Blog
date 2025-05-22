@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // LOGIN FORM
-  var loginForm = document.querySelector("form");
-  var message = document.getElementById("message");
+  let loginForm = document.querySelector("form");
+  let message = document.getElementById("message");
 
   if (loginForm && message) {
     loginForm.addEventListener("submit", function (event) {
@@ -191,56 +191,59 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
- document.addEventListener("DOMContentLoaded", function () {
-   const dropdown = document.getElementById("categoryDropdown");
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdown = document.getElementById("categoryDropdown");
 
-   const allowedCategories = [
-     "health",
-     "business",
-     "sports",
-     "entertainment",
-     "food",
-     "technology",
-   ];
+  const allowedCategories = [
+    "health",
+    "education",
+    "sports",
+    "entertainment",
+    "food",
+    "technology",
+  ];
 
-   if (dropdown) {
-     fetch("https://test.blockfuselabs.com/api/categories")
-       .then((response) => response.json())
-       .then((result) => {
-         const categories = result.data;
+  if (dropdown) {
+    fetch("https://test.blockfuselabs.com/api/categories")
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not OK");
+        return response.json();
+      })
+      .then((result) => {
+        const categories = result.data;
 
-         if (Array.isArray(categories)) {
-           const filtered = categories.filter((cat) =>
-             allowedCategories.includes(cat.slug.toLowerCase())
-           );
+        if (Array.isArray(categories)) {
+          const filtered = categories.filter((cat) =>
+            allowedCategories.includes(cat.slug.toLowerCase())
+          );
 
-           if (filtered.length > 0) {
-             dropdown.innerHTML = `<option value="" disabled selected>Category</option>`;
+          if (filtered.length > 0) {
+            dropdown.innerHTML = `<option value="" disabled selected>Category</option>`;
 
-             filtered.forEach((category) => {
-               const option = document.createElement("option");
-               option.value = category.slug;
-               option.textContent = category.name;
-               dropdown.appendChild(option);
-             });
+            filtered.forEach((category) => {
+              const option = document.createElement("option");
+              option.value = category.slug;
+              option.textContent = category.name;
+              dropdown.appendChild(option);
+            });
 
-             dropdown.addEventListener("change", function () {
-               const selected = dropdown.value;
-               if (selected) {
-                 window.location.href = `/dist/index.html#${selected}`;
-                 window.location.reload();
-               }
-             });
-           } else {
-             dropdown.innerHTML = `<option value="">No allowed categories found</option>`;
-           }
-         } else {
-           dropdown.innerHTML = `<option value="">No categories available</option>`;
-         }
-       })
-       .catch((error) => {
-         console.error("Error fetching categories:", error);
-         dropdown.innerHTML = `<option value="">Failed to load categories</option>`;
-       });
-   }
- });
+            dropdown.addEventListener("change", function () {
+              const selected = dropdown.value;
+              if (selected) {
+                // Navigate and reload page to the selected category anchor
+                window.location.href = `/dist/index.html#${selected}`;
+              }
+            });
+          } else {
+            dropdown.innerHTML = `<option value="">No allowed categories found</option>`;
+          }
+        } else {
+          dropdown.innerHTML = `<option value="">No categories available</option>`;
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching categories:", error);
+        dropdown.innerHTML = `<option value="">Failed to load categories</option>`;
+      });
+  }
+});
