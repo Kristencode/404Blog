@@ -1,14 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   // MENU TOGGLE
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  if (menuToggle && mobileMenu) {
-    document.querySelector('label[for="menu-toggle"]').addEventListener("click", function () {
-      menuToggle.checked = !menuToggle.checked;
-      mobileMenu.classList.toggle("hidden");
+  document
+    .getElementById("hamburgerBtn")
+    .addEventListener("click", function () {
+      var menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
     });
-  }
-
   // DYNAMIC AUTH NAVIGATION
   const authLinks = document.getElementById("authLinks");
   const mobileMenuLinks = document.getElementById("mobile-menu");
