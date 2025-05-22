@@ -2,83 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>404 Blog Post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News 404 - Create Post</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="post.js"></script>
 </head>
-<body class="bg-gray-100 p-6">
-  <!-- Message display area -->
-  <div id="formMessage" class="mt-4 p-2 rounded-md text-center hidden"></div>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="bg-slate-50 shadow-sm sticky top-0 z-50 border-b border-gray-300">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="index.html" class="text-2xl font-extrabold text-red-600">News<span class="text-gray-800">404</span></a>
+      <ul class="hidden md:flex space-x-10 font-semibold text-slate-900">
+        <li><a href="index.html" class="hover:text-red-800">Home</a></li>
+        <li><a href="#" class="hover:text-red-800">Latest</a></li>
+        <li><a href="#health" class="hover:text-red-800">Health</a></li>
+        <li><a href="#sports" class="hover:text-red-800">Sports</a></li>
+        <li><a href="#entertainment" class="hover:text-red-800">Entertainment</a></li>
+        <li><a href="#business" class="hover:text-red-800">Business</a></li>
+        <li><a href="#food" class="hover:text-red-800">Food</a></li>
+        <li><a href="#technology" class="hover:text-red-800">Technology</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Form -->
-  <form id="postForm" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold mb-6">Add item</h2>
-
-    <div class="mb-4">
-      <label class="block text-sm font-medium mb-1" for="title">Title</label>
-      <input id="title" type="text" maxlength="225" placeholder="Add title..." class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-sm font-medium mb-1" for="author">Author</label>
-      <input id="author" type="text" maxlength="100" placeholder="Enter your name..." class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-sm font-medium mb-1" for="content">Content</label>
-      <textarea id="content" rows="5" placeholder="Add content..." class="w-full border border-gray-300 rounded-md px-3 py-2"></textarea>
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-sm font-medium mb-1" for="categoryId">Category ID</label>
-      <input id="categoryId" type="number" min="1" placeholder="Enter category ID..." class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-sm font-medium mb-1">Featured Image</label>
-      <div class="w-full border-2 border-dashed border-indigo-300 rounded-md flex items-center justify-center h-32 text-indigo-500 text-sm cursor-pointer hover:bg-indigo-50 relative">
-        <input type="file" accept="image/*" id="featuredImage" class="w-full h-full opacity-0 absolute cursor-pointer">
-        <span id="fileName" class="text-sm text-gray-600">Choose from library</span>
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-10">
+    <h1 class="text-3xl font-bold text-center text-red-600 mb-10">Create a New Post</h1>
+    <div id="formMessage" class="mt-4 p-4 rounded-md text-center hidden"></div>
+    <form id="postForm" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="title">Title</label>
+        <input id="title" type="text" placeholder="Enter title..." class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500">
       </div>
-    </div>
-
-    <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition">Submit</button>
-  </form>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="author">Author</label>
+        <input id="author" type="text" placeholder="Enter author..." class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500">
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="content">Content</label>
+        <textarea id="content" rows="5" placeholder="Enter content..." class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="categoryId">Category</label>
+        <select id="categoryId" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500">
+          <option value="">Select a category</option>
+          <option value="1">Health</option>
+          <option value="2">Sports</option>
+          <option value="3">Entertainment</option>
+          <option value="4">Business</option>
+          <option value="5">Food</option>
+          <option value="6">Technology</option>
+        </select>
+      </div>
+      <!-- Featured Image -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="featuredImage">Featured Image</label>
+        <div class="w-full border-2 border-dashed border-red-300 rounded-md flex items-center justify-center h-32 text-red-500 text-sm cursor-pointer hover:bg-red-50 relative">
+          <input type="file" accept="image/*" id="featuredImage" class="absolute w-full h-full opacity-0 cursor-pointer z-10">
+          <span id="fileName" class="z-0">Choose image</span>
+        </div>
+      </div>
+      <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition">Submit</button>
+    </form>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 px-4 sm:px-6 py-10 mt-10">
+  <footer class="bg-black text-gray-300 px-4 sm:px-6 py-10">
     <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between gap-8">
       <div class="text-center lg:text-left">
-        <p class="text-2xl font-bold text-white">
-          NEWS<em class="text-[#b91c1c]">404</em>
-        </p>
+        <p class="text-2xl font-bold text-white">NEWS<em class="text-[#b91c1c]">404</em></p>
       </div>
       <ul class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-center lg:text-left">
-        <li><a href="#" class="hover:text-red-300">Home</a></li>
+        <li><a href="index.html" class="hover:text-red-300">Home</a></li>
         <li><a href="#" class="hover:text-red-300">Latest</a></li>
-        <li><a href="#" class="hover:text-red-300">Sports</a></li>
-        <li><a href="#" class="hover:text-red-300">Politics</a></li>
-        <li><a href="#" class="hover:text-red-300">Fashion</a></li>
-        <li><a href="#" class="hover:text-red-300">Business</a></li>
+        <li><a href="#health" class="hover:text-red-300">Health</a></li>
+        <li><a href="#sports" class="hover:text-red-300">Sports</a></li>
+        <li><a href="#entertainment" class="hover:text-red-300">Entertainment</a></li>
+        <li><a href="#business" class="hover:text-red-300">Business</a></li>
+        <li><a href="#food" class="hover:text-red-300">Food</a></li>
+        <li><a href="#technology" class="hover:text-red-300">Technology</a></li>
       </ul>
     </div>
     <div class="border-t border-gray-700 my-6"></div>
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-col lg:flex-row justify-between items-center gap-6 text-sm">
       <div class="flex justify-center lg:justify-start gap-4">
-        <a href="#" class="hover:text-white" target="_blank">
-          <ion-icon name="logo-facebook" class="text-xl"></ion-icon>
-        </a>
-        <a href="#" class="hover:text-white" target="_blank">
-          <ion-icon name="logo-twitter" class="text-xl"></ion-icon>
-        </a>
-        <a href="#" class="hover:text-white" target="_blank">
-          <ion-icon name="logo-instagram" class="text-xl"></ion-icon>
-        </a>
-        <a href="#" class="hover:text-white" target="_blank">
-          <ion-icon name="logo-linkedin" class="text-xl"></ion-icon>
-        </a>
-        <a href="#" class="hover:text-white" target="_blank">
-          <ion-icon name="logo-github" class="text-xl"></ion-icon>
-        </a>
+        <a href="#" class="hover:text-white"><ion-icon name="logo-facebook" class="text-xl"></ion-icon></a>
+        <a href="#" class="hover:text-white"><ion-icon name="logo-twitter" class="text-xl"></ion-icon></a>
+        <a href="#" class="hover:text-white"><ion-icon name="logo-instagram" class="text-xl"></ion-icon></a>
+        <a href="#" class="hover:text-white"><ion-icon name="logo-linkedin" class="text-xl"></ion-icon></a>
+        <a href="#" class="hover:text-white"><ion-icon name="logo-github" class="text-xl"></ion-icon></a>
       </div>
       <div class="text-center lg:text-right">
         <p>© 2025 Team404. All rights reserved.</p>
@@ -86,10 +100,6 @@
     </div>
   </footer>
 
-  <!-- Include Ionicons for social media icons -->
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <!-- Include JavaScript -->
-  <script src="post.js"></script>
+ 
 </body>
 </html>
