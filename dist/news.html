@@ -1,158 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 Form</title>
-    <link rel="stylesheet" href="./output.css" />
-  </head>
-  <body class="min-h-screen flex flex-col bg-gray-100">
-    <nav
-    class="bg-slate-50 w-full mt-0 shadow-sm sticky top-0 z-50 border-b border-gray-300 lg:hidd"
-    aria-label="Main navigation"
-  >
-    <div
-      class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
-    >
-      <a href="#" class="text-2xl font-extrabold text-red-600 tracking-wide"
-        >News<span class="text-gray-800">404</span></a
-      >
-      <ul class="hidden md:flex space-x-10 font-semibold text-slate-900">
-        <li>
-          <a
-            href="./index.html"
-            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-            >Latest</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-            >Sports</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-            >Politics</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-            >Fashion</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="nav-link hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-            >Business</a
-          >
-        </li>
-      </ul>
-      <div class="font-semibold text-gray-700 lg:flex gap-4 hidden">
-        <button
-          class="hover:text-red-800 focus:text-red-800 transition focus:outline-none focus:ring-2 focus:ring-red-500"
-        >
-          <a href="./login.html">Sign In</a>
-        </button>
-        <button
-          class="bg-red-700 text-white p-1 lg:px-2 rounded-md ease-in-out hover:scale-105 transition-transform duration-900"
-        >
-          <a href="reg.html">Sign Up</a>
-        </button>
-      </div>
-    </div>
-    </nav>
-
-    <section class="max-w-2xl mx-auto bg-white p-4 mt-10">
-      <h2 class="text-4xl font-bold text-gray-900 mb-2">Spain and Portugal Power Chaos - In Pictures</h2>
-      </div>
-      <img src="https://ichef.bbci.co.uk/news/480/cpsprodpb/51ea/live/aa3c2900-2448-11f0-b26b-ab62c890638b.jpg.webp" class="mb-4 w-full object-cover">
-      <p class="text-gray-800 mb-3">
-       A massive power cut has caused widespread disruption in parts of Spain and Portugal, with airports, trains and petrol stations impacted.The chaos has also hit stores, with some supermarkets shutting and local grocery stores switching to cash as card payments stopped workingHere we collect some of the day's most powerful news photographs.
-      
-
-        <img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/bc9d/live/98313e00-2446-11f0-8f57-b7237f6a66e6.jpg.webp" class="mb-4 w-full object-cover mt-10">
-       <p class="text-gray-800 mb-3">Tens of millions of people on the Iberian Peninsula had their day upended by power outages that lasted hours.Across Spain and Portugal, hospitals ran on generators, trains were halted and supermarkets were shuttered. By Monday evening, some power was restored in parts of Spain and areas in Portugal, but many residents were still waiting for their lights to turn back on. The authorities raced to find and repair the issue while there was still daylight.Here is a look at some of the damage:</p>
-        <p>A massive power cut has caused widespread disruption in parts of Spain and Portugal, with airports, trains and petrol stations impacted.
-
-The chaos has also hit stores, with some supermarkets shutting and local grocery stores switching to cash as card payments stopped working.
-
-Here we collect some of the day's most powerful news photographs.
-
-</p>
-    </section>
-
-
-
-   <!-- Comment Section Container -->
-
-<div class="flex justify-center mt-16 lg:mt-20">
-  <div class="w-full max-w-2xl bg-gray-100 rounded-lg shadow-md p-6">
-
-    <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-4">Comments</h2>
-
-    <!-- Comment Input -->
-    <div class="mb-6">
-      <textarea id="commentInput" rows="4" placeholder="Write your comment here..."
-        class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"></textarea>
-      <button id="postComment"
-        class="mt-3 bg-green-500 text-red-500 px-4 py-2 rounded-md hover:bg-green-600 transition">Post
-        Comment</button>
-    </div>
-
-  
-    <div id="commentList" class="space-y-4">
-  
-    </div>
-
-  </div>
-</div>
-
-
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-
-<script>
-  const postButton = document.getElementById('postComment');
-  const commentInput = document.getElementById('commentInput');
-  const commentList = document.getElementById('commentList');
-
-  postButton.addEventListener('click', function () {
-    const commentText = commentInput.value.trim();
-
-    if (commentText !== "") {
-     
-      const comment = document.createElement('div');
-      comment.className = "bg-white p-4 rounded-md shadow flex gap-3 items-start";
-
-      comment.innerHTML = `
-        <ion-icon name="person-circle-outline" class="text-3xl text-gray-500"></ion-icon>
-        <div>
-          <p class="font-semibold text-gray-800">Username</p>
-          <p class="text-gray-700">${commentText}</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News404</title>
+  <link href="/dist/output.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="/dist/index.html" class="text-2xl font-bold text-gray-900">News404</a>
+        <div id="navLinks" class="hidden md:flex space-x-10">
+          <a href="/dist/index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="/dist/index.html#latest" class="text-gray-600 hover:text-gray-900">Latest</a>
+          <!-- Dynamic categories -->
         </div>
-      `;
+        <div id="authLinks" class="hidden md:flex space-x-10">
+          <a href="/dist/login.html" class="text-gray-600 hover:text-gray-900">Sign In</a>
+          <a href="/dist/reg.html" class="text-gray-600 hover:text-gray-900">Sign Up</a>
+          <button id="signOut" class="hidden text-gray-600 hover:text-gray-900">Sign Out</button>
+        </div>
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </label>
+      </div>
+      <input type="checkbox" id="menu-toggle" class="hidden" />
+      <div id="mobile-menu" class="md:hidden hidden mt-4">
+        <a href="/dist/index.html" class="block py-2 text-gray-600 hover:text-gray-900">Home</a>
+        <a href="/dist/index.html#latest" class="block py-2 text-gray-600 hover:text-gray-900">Latest</a>
+        <!-- Dynamic categories -->
+        <a href="/dist/login.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign In</a>
+        <a href="/dist/reg.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign Up</a>
+        <button id="mobileSignOut" class="hidden block py-2 text-gray-600 hover:text-gray-900">Sign Out</button>
+      </div>
+    </nav>
+  </header>
 
-      
-      commentList.appendChild(comment);
-      commentInput.value = "";
-    } else {
-      alert("Please write a comment before posting.");
-    }
-  });
-</script>
+  <main class="container mx-auto px-6 py-8">
+    <div id="postContent" class="mb-8">
+      <p class="text-center text-gray-600 animate-pulse">Loading post...</p>
+    </div>
+    <div id="postActions" class="mb-4"></div>
+    <h2 class="text-2xl font-bold mb-4">Comments</h2>
+    <div id="commentsContainer" class="mb-6">
+      <p class="text-center text-gray-600 animate-pulse">Loading comments...</p>
+    </div>
+    <form id="commentForm" class="max-w-md mx-auto">
+      <textarea id="commentText" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-green-400" rows="4" placeholder="Write a comment..."></textarea>
+      <button type="submit" class="mt-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Post Comment</button>
+    </form>
+    <div id="formMessage" class="hidden"></div>
+  </main>
 
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <a href="/dist/index.html" class="text-2xl font-bold">NEWS404</a>
+        <div id="footerNavLinks" class="flex space-x-10 mt-4 md:mt-0">
+          <a href="/dist/index.html" class="hover:text-gray-300">Home</a>
+          <a href="/dist/index.html#latest" class="hover:text-gray-300">Latest</a>
+          <!-- Dynamic categories -->
+        </div>
+      </div>
+      <p class="text-center mt-6">© 2025 Team404. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const postId = new URLSearchParams(window.location.search).get("postId");
+      if (!postId) {
+        document.getElementById("postContent").innerHTML = `<p class="text-center text-red-600">Invalid post ID.</p>`;
+        document.getElementById("commentsContainer").innerHTML = `<p class="text-center text-red-600">Cannot load comments without a valid post ID.</p>`;
+        return;
+      }
+
+      const postContent = document.getElementById("postContent");
+      const postActions = document.getElementById("postActions");
+      const commentsContainer = document.getElementById("commentsContainer");
+
+      // Fetch post
+      try {
+        console.log(`Fetching post with ID: ${postId}`);
+        const endpoints = [
+          `https://test.blockfuselabs.com/api/posts/${postId}`,
+          `https://test.blockfuselabs.com/api/post/${postId}`
+        ];
+        let response, data;
+        for (const endpoint of endpoints) {
+          response = await fetch(endpoint);
+          data = await response.json();
+          if (response.ok) break;
+        }
+
+        const user = JSON.parse(sessionStorage.getItem("userData") || "{}");
+        if (response.ok && (data.data || data)) {
+          const post = data.data || data;
+          const imageUrl = post.featured_image
+            ? post.featured_image.startsWith("http")
+              ? post.featured_image
+              : `https://test.blockfuselabs.com${post.featured_image}`
+            : null;
+          postContent.innerHTML = `
+            <h1 class="text-3xl font-bold mb-4">${post.title}</h1>
+            <p class="text-gray-600 mb-4">By ${post.author} on ${new Date(post.date).toLocaleDateString()}</p>
+            ${
+              imageUrl
+                ? `<img src="${imageUrl}" alt="${post.title}" class="w-full h-48 object-cover mb-4 rounded-md" onerror="this.src='https://via.placeholder.com/400x200?text=No+Image';" />`
+                : ""
+            }
+            <p class="text-gray-800">${post.content}</p>
+          `;
+          if (user.id === post.user_id) {
+            postActions.innerHTML = `
+              <button id="editPost" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mr-2">Edit Post</button>
+              <button id="deletePost" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">Delete Post</button>
+            `;
+            document.getElementById("editPost").addEventListener("click", () => {
+              window.location.href = `/dist/edit.html?postId=${postId}`;
+            });
+            document.getElementById("deletePost").addEventListener("click", async () => {
+              if (confirm("Are you sure you want to delete this post?")) {
+                await deletePost(postId);
+              }
+            });
+          }
+        } else {
+          postContent.innerHTML = `<p class="text-center text-red-600">Post not found. Error: ${data.message || response.statusText}</p>`;
+        }
+      } catch (error) {
+        console.error("Error loading post:", error);
+        postContent.innerHTML = `<p class="text-center text-red-600">Failed to load post. Please try again later.</p>`;
+      }
+
+      // Fetch comments
+      loadComments(postId, commentsContainer);
+    });
+  </script>
+</body>
+</html>
