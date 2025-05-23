@@ -8,72 +8,68 @@
 </head>
 <body class="bg-gray-100">
   <header class="bg-white shadow">
-  <nav class="container mx-auto px-6 py-4">
-    <div class="flex justify-between items-center">
-       <a href="/dist/index.html" class="text-2xl font-bold  text-gray-600">NEWS<span class="text-red-500 text-3xl">404</span> </a>
+    <nav class="container mx-auto px-4 md:px-6 py-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/dist/index.html" class="text-2xl font-bold text-gray-600">
+          NEWS<span class="text-red-500 text-3xl">404</span>
+        </a>
 
-      <!-- Desktop Links -->
-      <div id="navLinks" class="hidden md:flex space-x-10">
-        <a href="/dist/index.html" class="text-red-600 hover:text-gray-900 font-bold">Home</a>
-        <a href="/dist/index.html#latest" class="text-red-500 hover:text-gray-900 font-bold">Latest</a>
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="/dist/index.html" class="text-red-600 hover:text-gray-900 font-bold">Home</a>
+          <a href="/dist/index.html#latest" class="text-red-500 hover:text-gray-900 font-bold">Latest</a>
+          <a href="/dist/post.html" class="text-gray-600 hover:text-gray-900 font-bold">Create new post</a>
+          <a href="/dist/login.html" class="text-gray-600 hover:text-gray-900 font-bold">Sign In</a>
+          <a href="/dist/reg.html" class="text-white bg-red-500 px-4 py-2 rounded-md font-bold hover:bg-red-600">Sign Up</a>
+          <button id="signOut" class="hidden text-gray-600 hover:text-gray-900">Sign Out</button>
+        </div>
+
+        <!-- Hamburger (Mobile Only) -->
+        <button id="hamburgerBtn" class="md:hidden focus:outline-none">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
 
-      <!-- Desktop Auth Links -->
-      <div id="authLinks" class="hidden md:flex space-x-10 lg:flex items-center justify-center">
-               <a href="/dist/post.html" class="text-gray-600 hover:text-gray-900 font-bold">Creat new post</a>
-        <a href="/dist/login.html" class="text-gray-600 hover:text-gray-900 font-bold">Sign In</a>
-        <a href="/dist/reg.html" class="text-white hover:text-gray-900 border-non w-32 bg-red-500 p-1 flex justify-center font-bold rounded-md">Sign Up</a>
-        <button id="signOut" class="hidden text-gray-600 hover:text-gray-900">Sign Out</button>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden mt-4 space-y-3 md:hidden">
+        <a href="/dist/index.html" class="block text-gray-600 hover:text-gray-900 font-bold">Home</a>
+        <a href="/dist/index.html#latest" class="block text-gray-600 hover:text-gray-900 font-bold">Latest</a>
+        <a href="/dist/post.html" class="block text-gray-600 hover:text-gray-900 font-bold">Create new post</a>
+        <a href="/dist/login.html" class="block text-gray-600 hover:text-gray-900 font-bold">Sign In</a>
+        <a href="/dist/reg.html" class="block text-white bg-red-500 px-4 py-2 rounded-md font-bold text-center hover:bg-red-600">Sign Up</a>
+        <button id="mobileSignOut" class="hidden block text-gray-600 hover:text-gray-900 font-bold">Sign Out</button>
       </div>
+    </nav>
+  </header>
 
-      <!-- Hamburger (Mobile Only) -->
-      <button id="hamburgerBtn" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden mt-4 md:hidden space-y-2">
-      <a href="/dist/index.html" class="block py-2 text-gray-600 hover:text-gray-900">Home</a>
-      <a href="/dist/index.html#latest" class="block py-2 text-gray-600 hover:text-gray-900">Latest</a>
-      <a href="/dist/login.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign In</a>
-      <a href="/dist/reg.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign Up</a>
-      <button id="mobileSignOut" class="hidden block py-2 text-gray-600 hover:text-gray-900">Sign Out</button>
-    </div>
-  </nav>
-</header>
-
-  <main class="container mx-auto px-6 py-8">
-    <h1 class="text-3xl font-bold mb-6">News  <span class="text-red-500">in Pictures</span> </h1>
-    <div id="postsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <main class="container mx-auto px-4 md:px-6 py-8">
+    <h1 class="text-3xl font-bold mb-6">News <span class="text-red-500">in Pictures</span></h1>
+    <div id="postsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <p class="text-center text-gray-600 animate-pulse">Loading posts...</p>
     </div>
   </main>
 
-  
-</body>
-</html>
-<footer class="bg-black text-gray-400 py-8 mt-12">
-    <div class="container mx-auto px-6">
+  <footer class="bg-black text-gray-400 py-8 mt-12">
+    <div class="container mx-auto px-4 md:px-6">
       <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <a href="/dist/index.html" class="text-2xl font-bold">NEWS<span class="text-red-500 text-3xl">404</span> </a>
-        <div id="footerNavLinks" class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-10 text-center md:text-left">
-          <a href="/dist/index.html" class="hover:text-gray-300 ">Home</a>
+        <a href="/dist/index.html" class="text-2xl font-bold">NEWS<span class="text-red-500 text-3xl">404</span></a>
+        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-10 text-center md:text-left">
+          <a href="/dist/index.html" class="hover:text-gray-300">Home</a>
           <a href="/dist/index.html#latest" class="hover:text-gray-300">Latest</a>
-          <!-- Dynamic categories -->
         </div>
       </div>
       <p class="text-center text-gray-400 text-sm mt-6">© 2025 Team404. 
-        <a href="https://github.com/Kristencode/404Blog">gitHub.</a> </p>
+        <a href="https://github.com/Kristencode/404Blog" class="underline">gitHub.</a>
+      </p>
     </div>
   </footer>
 
-  <script>
+  <!-- Mobile menu toggle -->
   
-  
-  </script>
-
   <script src="/dist/script.js"></script>
+</body>
+</html>

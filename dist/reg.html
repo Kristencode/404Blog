@@ -2,60 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>News404</title>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link href="/dist/output.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+
   <header class="bg-white shadow">
-    <nav class="container mx-auto px-6 py-4">
-      <div class="flex justify-between items-center">
-         <a href="/dist/index.html" class="text-2xl font-bold  text-gray-600">NEWS<em><span class="text-red-500 text-3xl">404</span></em> </a>
-  
-        <!-- Desktop Links -->
-        <div id="navLinks" class="hidden md:flex space-x-10">
-          <a href="/dist/index.html" class="text-red-600 hover:text-gray-900 font-bold">Home</a>
-          <a href="/dist/index.html#latest" class="text-red-500 hover:text-gray-900 font-bold">Latest</a>
-        </div>
-  
-        <!-- Desktop Auth Links -->
-        <div id="authLinks" class="hidden md:flex space-x-10 lg:flex items-center justify-center">
-                 <a href="/dist/post.html" class="text-gray-600 hover:text-gray-900 font-bold">Creat new post</a>
-          <a href="/dist/login.html" class="text-gray-600 hover:text-gray-900 font-bold underline">Sign In</a>
-          <a href="/dist/reg.html" class="text-white hover:text-red-300 border-non w-32 bg-red-500 p-1 flex justify-center font-bold rounded-md"><ion-icon class="text-2xl" name="reload-outline"></ion-icon></a>
-          <button id="signOut" class="hidden text-gray-600 hover:text-gray-900">Sign Out</button>
-        </div>
-  
-        <!-- Hamburger (Mobile Only) -->
-        <button id="hamburgerBtn" class="md:hidden focus:outline-none">
-          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <nav class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+      <a href="/dist/index.html" class="text-2xl font-bold text-gray-600 whitespace-nowrap">
+        NEWS<em><span class="text-red-500 text-3xl">404</span></em>
+      </a>
+      <div class="flex md:hidden">
+        <button id="hamburgerBtn" aria-label="Toggle menu" class="text-gray-800 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
-  
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden mt-4 md:hidden space-y-2">
-        <a href="/dist/index.html" class="block py-2 text-gray-600 hover:text-gray-900">Home</a>
-        <a href="/dist/index.html#latest" class="block py-2 text-gray-600 hover:text-gray-900">Latest</a>
-        <a href="/dist/login.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign In</a>
-        <a href="/dist/reg.html" class="block py-2 text-gray-600 hover:text-gray-900">Sign Up</a>
-        <button id="mobileSignOut" class="hidden block py-2 text-gray-600 hover:text-gray-900">Sign Out</button>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="/dist/index.html" class="text-red-600 hover:text-gray-900 font-bold whitespace-nowrap">Home</a>
+        <a href="/dist/index.html#latest" class="text-red-500 hover:text-gray-900 font-bold whitespace-nowrap">Latest</a>
+        <a href="/dist/post.html" class="text-gray-600 hover:text-gray-900 font-bold whitespace-nowrap">Create new post</a>
+        <a href="/dist/login.html" class="text-gray-600 hover:text-gray-900 font-bold underline whitespace-nowrap">Sign In</a>
+        <a href="/dist/reg.html" class="text-white bg-red-500 px-3 py-1 rounded-md font-bold hover:bg-red-600 flex items-center justify-center">
+          <ion-icon class="text-2xl" name="reload-outline"></ion-icon>
+        </a>
+        <button id="signOut" class="hidden text-gray-600 hover:text-gray-900">Sign Out</button>
       </div>
     </nav>
-  </header>
+   
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 flex flex-col space-y-2 bg-white border-t">
+      <a href="/dist/index.html" class="block py-2 px-3 rounded hover:bg-gray-200 text-gray-700 hover:text-gray-900">Home</a>
+      <a href="/dist/index.html#latest" class="block py-2 px-3 rounded hover:bg-gray-200 text-gray-700 hover:text-gray-900">Latest</a>
+      <a href="/dist/login.html" class="block py-2 px-3 rounded hover:bg-gray-200 text-gray-700 hover:text-gray-900">Sign In</a>
+      <a href="/dist/reg.html" class="block py-2 px-3 rounded hover:bg-gray-200 text-gray-700 hover:text-gray-900">Sign Up</a>
+      <button id="mobileSignOut" class="hidden block py-2 px-3 rounded hover:bg-gray-200 text-gray-700 hover:text-gray-900">Sign Out</button>
+    </div>
   </header>
 
-
-  <main class="container mx-auto px-6 py-8">
+ 
+  <main class="container mx-auto px-6 py-8 flex-grow">
     <h1 class="text-3xl font-bold mb-6 text-center">Create Account</h1>
     <form id="regForm" class="max-w-md mx-auto">
       <div class="mb-4">
         <label for="fullName" class="block text-gray-700 mb-1">Full Name:</label>
         <input type="text" id="fullName" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-green-400" required />
-
       </div>
       <div class="mb-4">
         <label for="email" class="block text-gray-700 mb-1">Email</label>
@@ -69,7 +65,7 @@
         <label for="teamName" class="block text-gray-700 mb-1">Team</label>
         <input type="text" id="teamName" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-green-400" required />
       </div>
-      <button id="submit" type="submit" class="bg-red-500 hover: text-white px-4 py-2 rounded-md hover:bg-green-600 w-full">Register</button>
+      <button id="submit" type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-green-600 w-full">Register</button>
       <div id="responseMessage" class="text-sm text-center mt-2"></div>
       <p class="text-center mt-4">
         Already have an account? <a href="/dist/login.html" class="text-red-800 hover:underline">Sign in</a>
@@ -77,21 +73,25 @@
     </form>
   </main>
 
-  <footer class="bg-black text-gray-400 py-8 mt-12">
+ 
+  <footer class="bg-black text-gray-400 py-8">
     <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-         <a href="/dist/index.html" class="text-2xl font-bold  text-gray-600">NEWS<em><span class="text-red-500 text-3xl">404</span></em> </a>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="/dist/index.html" class="text-2xl font-bold text-gray-600 whitespace-nowrap">
+          NEWS<em><span class="text-red-500 text-3xl">404</span></em>
+        </a>
         <div id="footerNavLinks" class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-10 text-center md:text-left">
-          <a href="/dist/index.html" class="hover:text-gray-300 ">Home</a>
+          <a href="/dist/index.html" class="hover:text-gray-300">Home</a>
           <a href="/dist/index.html#latest" class="hover:text-gray-300">Latest</a>
-          <!-- Dynamic categories -->
         </div>
       </div>
-      <p class="text-center text-gray-400 text-sm mt-6">© 2025 Team404. a
-        <a href="https://github.com/Kristencode/404Blog">gitHub.</a> </p>
+      <p class="text-center text-gray-400 text-sm mt-6">
+        © 2025 Team404. <a href="https://github.com/Kristencode/404Blog" class="underline">gitHub</a>
+      </p>
     </div>
   </footer>
 
   <script src="/dist/script.js"></script>
+  
 </body>
 </html>
