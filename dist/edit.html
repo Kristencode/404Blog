@@ -6,7 +6,7 @@
   <title>News404</title>
   <link href="/dist/output.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+<body class="bg-gray-100 min-h-screen flex flex-col overflow-x-hidden">
 
   <!-- Header -->
   <header class="bg-white shadow w-full">
@@ -17,14 +17,14 @@
         </a>
 
         <!-- Desktop Links:-->
-        <div id="navLinks" class="hidden lg:flex space-x-10 flex-wrap">
+        <div id="navLinks" class="hidden lg:flex space-x-10 flex-wrap min-w-0">
           <a href="/dist/index.html" class="text-red-600 hover:text-gray-900 font-bold whitespace-nowrap">Home</a>
           <a href="/dist/index.html#latest" class="text-red-500 hover:text-gray-900 font-bold whitespace-nowrap">Latest</a>
           <!-- Dynamic categories here -->
         </div>
 
         <!-- Desktop Auth Link-->
-        <div id="authLinks" class="hidden lg:flex space-x-10 items-center flex-wrap">
+        <div id="authLinks" class="hidden lg:flex space-x-10 items-center flex-wrap min-w-0">
           <a href="/dist/login.html" class="text-gray-600 hover:text-gray-900 font-bold whitespace-nowrap">Sign In</a>
           <a href="/dist/reg.html" class="text-white bg-red-500 hover:bg-red-600 px-4 py-1 rounded-md font-bold whitespace-nowrap">Sign Up</a>
           <button id="signOut" class="hidden text-gray-600 hover:text-gray-900 whitespace-nowrap">Sign Out</button>
@@ -41,12 +41,12 @@
 
       <!-- Mobile Menu: visible on md and below -->
       <div id="mobile-menu" class="hidden md:block lg:hidden mt-4 space-y-2">
-        <a href="/dist/index.html" class="block py-2 text-gray-600 hover:text-gray-900 font-bold whitespace-nowrap">Home</a>
-        <a href="/dist/index.html#latest" class="block py-2 text-gray-600 hover:text-gray-900 font-bold whitespace-nowrap">Latest</a>
+        <a href="/dist/index.html" class="block py-2 text-gray-600 hover:text-gray-900 font-bold">Home</a>
+        <a href="/dist/index.html#latest" class="block py-2 text-gray-600 hover:text-gray-900 font-bold">Latest</a>
         <!-- Dynamic categories here -->
-        <a href="/dist/login.html" class="block py-2 text-gray-600 hover:text-gray-900 font-bold whitespace-nowrap">Sign In</a>
-        <a href="/dist/reg.html" class="block py-2 text-gray-600 hover:text-gray-900 font-bold whitespace-nowrap">Sign Up</a>
-        <button id="mobileSignOut" class="hidden block py-2 text-gray-600 hover:text-gray-900 font-bold whitespace-nowrap">Sign Out</button>
+        <a href="/dist/login.html" class="block py-2 text-gray-600 hover:text-gray-900 font-bold">Sign In</a>
+        <a href="/dist/reg.html" class="block py-2 text-gray-600 hover:text-gray-900 font-bold">Sign Up</a>
+        <button id="mobileSignOut" class="hidden block py-2 text-gray-600 hover:text-gray-900 font-bold">Sign Out</button>
       </div>
     </nav>
   </header>
@@ -88,21 +88,17 @@
 
  <footer class="bg-gray-900 text-gray-400 py-8 mt-auto">
   <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center md:items-center space-y-4 md:space-y-0">
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-center space-y-4 md:space-y-0 md:space-x-4">
       
-   
       <a href="/dist/index.html" class="text-2xl font-bold text-gray-600 whitespace-nowrap">
         NEWS<em><span class="text-red-500 text-3xl">404</span></em>
       </a>
       
-  
-      <nav id="footerNavLinks" class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-10 text-center md:text-left">
+      <nav id="footerNavLinks" class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 text-center md:text-left">
         <a href="/dist/index.html" class="hover:text-gray-300 whitespace-nowrap">Home</a>
         <a href="/dist/index.html#latest" class="hover:text-gray-300 whitespace-nowrap">Latest</a>
-       
       </nav>
     </div>
-
 
     <p class="text-center text-gray-400 text-sm mt-6">
       © 2025 Team404. All rights reserved.
@@ -111,7 +107,6 @@
 </footer>
 
 
-  
 
   <script src="/dist/edit.js"></script>
   <script src="/dist/script.js"></script>
